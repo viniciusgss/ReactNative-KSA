@@ -2,13 +2,8 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, StyleSheet, ScrollView } from 'react-native';
-import Header from './components/Header';
-import Welcome from './components/Welcome';
-import Question from './components/Question';
-import Form from './components/Form';
-import DecoracaoInfer from './components/DecoracaoInfer';
-import Footer from './components/Footer';
-import NextScreen from './components/NextScreen'; 
+
+import { Header, Welcome, Question, Form, DecoracaoInfer, Footer, NextScreen } from './src/imports/import';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,7 +11,7 @@ function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Header title="KSA" />
-      
+
       <ScrollView contentContainerStyle={styles.content}>
         <Welcome />
         <Question />

@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { styles } from './Questionstyles';
 
 const Question = () => {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -15,11 +15,9 @@ const Question = () => {
         Quem é você?<Text style={styles.asterisk}>*</Text>
       </Text>
 
-      {/* Círculos */}
-      <View style={[styles.imagesContainer, { marginTop: 30 }]}>
-
-
-        {/* Círculo 1 */}
+      {/* Opções em círculos */}
+      <View style={styles.imagesContainer}>
+        {/* Professor */}
         <View style={styles.circleWithText}>
           <TouchableOpacity
             style={[
@@ -30,7 +28,7 @@ const Question = () => {
             onPress={() => handleSelect('professor')}
           >
             <Image
-              source={require('../assets/imagem1.png')}
+              source={require('../../assets/imagem1.png')}
               style={styles.circleImage}
             />
           </TouchableOpacity>
@@ -45,9 +43,7 @@ const Question = () => {
           </TouchableOpacity>
         </View>
 
-
-
-        {/* Círculo 2 */}
+        {/* Aluno */}
         <View style={styles.circleWithText}>
           <TouchableOpacity
             style={[
@@ -58,7 +54,7 @@ const Question = () => {
             onPress={() => handleSelect('aluno')}
           >
             <Image
-              source={require('../assets/imagem2.png')}
+              source={require('../../assets/imagem2.png')}
               style={styles.circleImage}
             />
           </TouchableOpacity>
@@ -73,9 +69,7 @@ const Question = () => {
           </TouchableOpacity>
         </View>
 
-
-
-        {/* Círculo 3 */}
+        {/* Coordenador */}
         <View style={styles.circleWithText}>
           <TouchableOpacity
             style={[
@@ -86,7 +80,7 @@ const Question = () => {
             onPress={() => handleSelect('coordenador')}
           >
             <Image
-              source={require('../assets/imagem3.png')}
+              source={require('../../assets/imagem3.png')}
               style={styles.circleImage}
             />
           </TouchableOpacity>
@@ -97,8 +91,6 @@ const Question = () => {
             ]}
             onPress={() => handleSelect('coordenador')}
           >
-
-
             <Text style={styles.optionText}>Coordenador</Text>
           </TouchableOpacity>
         </View>
@@ -106,58 +98,5 @@ const Question = () => {
     </View>
   );
 };
-
-
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 40,
-    paddingHorizontal: 20,
-  },
-  questionText: {
-    fontSize: 14,
-    fontFamily: 'Open Sans Semi Bold',
-    fontWeight: '600',
-    color: '#000',
-    textAlign: 'left',
-  },
-  asterisk: {
-    color: '#FF0606',
-  },
-  imagesContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 30,
-  },
-  circleWrapper: {
-    width: 96,
-    height: 96,
-    borderRadius: 48,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  circleImage: {
-    width: 80,
-    height: 71,
-    borderRadius: 31.5,
-  },
-  selectedOption: {
-    borderWidth: 3,
-    borderColor: '#5A9BD5',
-  },
-  optionTextWrapper: {
-    marginTop: 10,
-    alignItems: 'center',
-  },
-  optionText: {
-    fontSize: 12,
-    fontFamily: 'Open Sans Semi Bold',
-    fontWeight: '700',
-    color: '#000',
-  },
-  selectedTextOption: {
-    color: '#28a745',
-  },
-});
 
 export default Question;
