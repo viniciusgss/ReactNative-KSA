@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { View, StyleSheet, ScrollView } from 'react-native';
 
-import { Header, Welcome, Question, Form, DecoracaoInfer, Footer, NextScreen } from './src/imports/import';
+import { Header, Welcome, Question, Form, DecoracaoInfer, Footer, TelaTurmas } from './src/imports/import';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,9 +26,9 @@ function HomeScreen({ navigation }) {
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="TelaTurmas">
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="NextScreen" component={NextScreen} options={{ title: 'Próxima Tela' }} />
+        <Stack.Screen name="TelaTurmas" component={TelaTurmas} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

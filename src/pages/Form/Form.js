@@ -21,7 +21,7 @@ const Form = ({ navigation }) => {
       const data = await response.json();
 
       if (response.ok) {
-        navigation.navigate('NextScreen');
+        navigation.navigate('TelaTurmas');
       } else {
         setErro(data.message || 'Erro no login. Tente novamente.');
       }
