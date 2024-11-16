@@ -1,11 +1,22 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image} from 'react-native';
 import { styles } from './TelaTurmasstyles';
+import { Header, Footer,} from '../../imports/import';
 
 const TelaTurmas = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Tela de Turmas :)</Text>
+      <Header title="KSA" />
+      {/*<Image
+        source={require('../../assets/imagemTelaTurmas.png')}
+        style={styles.triangle}
+        resizeMode="contain"
+      />*/}
+      <View style={styles.line}>
+        <View style={styles.triangle} />
+        <Text style={styles.text}>Turmas</Text>
+      </View>
+      <Footer />
     </View>
   );
 };

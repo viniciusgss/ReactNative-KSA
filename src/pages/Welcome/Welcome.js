@@ -12,9 +12,9 @@ const Welcome = () => {
       />
 
       <View style={styles.textContainer}>
-        <Text style={styles.helloText}>
-          Olá, <Text style={styles.welcomeText}>Seja bem-vindo!!</Text>
-        </Text>
+        <View style={styles.helloText}>
+           <Text style={styles.welcomeText}>Olá, Seja bem-vindo!!</Text>
+        </View>
         <Text style={styles.subText}>
           Preencha os dados abaixo para realizar seu login
         </Text>
