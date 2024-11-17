@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, Image } from 'react-native';
+import { View, Text, FlatList, Image, ActivityIndicator} from 'react-native';
 import { styles } from './TelaTurmasstyles';
 import { Header, Footer } from '../../imports/import';
 
 const TelaTurmas = () => {
   const [turmas, setTurmas] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('https://back-end-mediotec.onrender.com/api/turmas')
       .then(response => response.json())
       .then(data => {
         setTurmas(data);
+        setLoading(false); // Defina o carregamento como falso após obter os dados
       })
       .catch(error => {
         console.error('Error fetching turmas:', error);
+        setLoading(false); // Defina o carregamento como falso mesmo em caso de erro
       });
   }, []);
 
@@ -37,15 +40,19 @@ const TelaTurmas = () => {
       <Header title="KSA" />
       <View style={styles.line}>
         <View style={styles.triangle} />
-        <Text style={styles.text}>Turmas</Text>
+        <Text style={styles.title}>Turmas</Text>
       </View>
-      <FlatList
-        data={turmas}
-        renderItem={renderTurma}
-        keyExtractor={(item, index) => item.id ? item.id.toString() : index.toString()}
-        numColumns={2}
-        contentContainerStyle={styles.listContainer}
-      />
+      {loading ? (
+        <ActivityIndicator style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} size="large" color="#FF9900" />
+      ) : (
+        <FlatList
+          data={turmas}
+          renderItem={renderTurma}
+          keyExtractor={(item, index) => item.id ? item.id.toString() : index.toString()}
+          numColumns={2}
+          contentContainerStyle={styles.listContainer}
+        />
+      )}
       <Footer />
     </View>
   );

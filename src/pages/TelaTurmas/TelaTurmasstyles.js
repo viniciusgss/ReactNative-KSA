@@ -6,7 +6,8 @@ export const styles = StyleSheet.create({
     backgroundColor: '#F5F5F5',
     position: 'relative',
   },
-  text: {
+  title: {
+    fontWeight: 'bold',
     fontSize: 20,
     fontFamily: 'Open Sans Semi Bold',
     color: '#000',
@@ -33,7 +34,7 @@ export const styles = StyleSheet.create({
     borderRightColor: 'transparent',
     borderBottomColor: '#FF9900',
     transform: [{ rotate: '90deg' }],
-    marginRight: 10,
+    marginRight: 5,
   },
   listContainer: {
     paddingHorizontal: 10,
