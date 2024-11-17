@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
   line: {
     borderBottomWidth: 1,
     borderBottomColor: 'black',
-    paddingTop: 10, 
+    paddingTop: 20, 
     paddingBottom: 10,
     marginLeft: 20,
     marginRight: 20,
@@ -90,5 +90,13 @@ export const styles = StyleSheet.create({
     fontSize: 12,
     color: '#333',
     flexShrink: 1,
+  },
+  decor: {
+    position: 'absolute',
+    top: -10,
+    right: -40,
+    width: 150,
+    height: 150,
+    resizeMode: 'contain',
   },
 });
