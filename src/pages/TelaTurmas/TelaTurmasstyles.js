@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     position: 'relative',
   },
   text: {
-    fontSize: 24,
+    fontSize: 20,
     fontFamily: 'Open Sans Semi Bold',
     color: '#000',
   },
@@ -24,9 +24,9 @@ export const styles = StyleSheet.create({
   triangle: {
     width: 0,
     height: 0,
-    borderLeftWidth: 10,
-    borderRightWidth: 10,
-    borderBottomWidth: 10,
+    borderLeftWidth: 7,
+    borderRightWidth: 7,
+    borderBottomWidth: 7,
     borderStyle: 'solid',
     backgroundColor: 'transparent',
     borderLeftColor: 'transparent',
@@ -34,5 +34,31 @@ export const styles = StyleSheet.create({
     borderBottomColor: '#FF9900',
     transform: [{ rotate: '90deg' }],
     marginRight: 10,
+  },
+  listContainer: {
+    paddingHorizontal: 10,
+    paddingVertical: 20,
+  },
+  turmaContainer: {
+    flex: 1,
+    margin: 10,
+    padding: 20,
+    backgroundColor: '#f0f0f0',
+    alignItems: 'center',
+    justifyContent: 'center',
+    maxWidth: '45%', // Adicione esta linha para limitar a largura máxima
+    borderStyle: 'solid',
+    borderColor: '#333',
+    borderWidth: 1,
+  },
+  turmaName: {
+    //bold
+    fontWeight: 'bold',
+    fontSize: 16,
+    color: '#333',
+  },
+  turmaDesc: {
+    fontSize: 14,
+    color: '#333',
   },
 });
