@@ -42,17 +42,15 @@ export const styles = StyleSheet.create({
   turmaContainer: {
     flex: 1,
     margin: 10,
-    padding: 20,
     backgroundColor: '#f0f0f0',
     alignItems: 'center',
-    justifyContent: 'center',
     maxWidth: '45%', // Adicione esta linha para limitar a largura máxima
     borderStyle: 'solid',
     borderColor: '#333',
     borderWidth: 1,
+    paddingBottom: 15,
   },
   turmaName: {
-    //bold
     fontWeight: 'bold',
     fontSize: 16,
     color: '#333',
@@ -60,5 +58,36 @@ export const styles = StyleSheet.create({
   turmaDesc: {
     fontSize: 14,
     color: '#333',
+  },
+  turmaLine: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#FF9900',
+    paddingTop: 20, 
+    paddingBottom: 10,
+    width: '70%',
+    alignItems: 'center',
+  },
+  turmaBanner: {
+    backgroundColor: '#FF9900',
+    padding: 20,
+    width: '100%',
+    alignItems: 'center',
+  },
+  turmaImage: {
+    width: 20,
+    height: 15, 
+    marginRight: 5,
+  },
+  turmaMembers: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 5,
+    width: '65%',
+    maxWidth: '100%',
+  },
+  turmaMemberText: {
+    fontSize: 12,
+    color: '#333',
+    flexShrink: 1,
   },
 });

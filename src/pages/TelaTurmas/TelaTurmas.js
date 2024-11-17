@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, Text, FlatList, Image } from 'react-native';
 import { styles } from './TelaTurmasstyles';
 import { Header, Footer } from '../../imports/import';
 
@@ -19,8 +19,16 @@ const TelaTurmas = () => {
 
   const renderTurma = ({ item }) => (
     <View style={styles.turmaContainer}>
-      <Text style={styles.turmaDesc}>Turno: {item.turno}</Text>
-      <Text style={styles.turmaName}>{item.nome}</Text>
+      <View style={styles.turmaBanner}>
+        <Text style={styles.turmaDesc}>Turno: {item.turno}</Text>
+      </View>
+      <View style={styles.turmaLine}>
+        <Text style={styles.turmaName}>{item.nome}</Text>
+      </View>
+      <View style={styles.turmaMembers}>
+        <Image source={require('../../assets/people.png')} style={styles.turmaImage} />
+        <Text style={styles.turmaMemberText} numberOfLines={1} ellipsizeMode="tail">{item.professores}</Text>
+      </View>
     </View>
   );
 
