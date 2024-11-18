@@ -11,7 +11,8 @@ const TelaTurmas = () => {
     fetch('https://back-end-mediotec.onrender.com/api/turmas')
       .then(response => response.json())
       .then(data => {
-        setTurmas(data);
+        const sortedData = data.sort((a, b) => a.nome.localeCompare(b.nome));
+        setTurmas(sortedData);
         setLoading(false); // Defina o carregamento como falso após obter os dados
       })
       .catch(error => {
