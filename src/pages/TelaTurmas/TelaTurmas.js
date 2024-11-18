@@ -22,9 +22,13 @@ const TelaTurmas = () => {
   }, []);
 
   const renderTurma = ({ item }) => (
-    <TouchableOpacity style={styles.turmaContainer}>
-      <View style={styles.turmaBanner}>
-        <Text style={styles.turmaDesc}>Turno: {item.turno}</Text>
+    <TouchableOpacity style={styles.turmaCard}>
+      <View style={styles.turmaCardHeader}>
+        <View style={styles.turmaFotoProf} />
+        <View style={styles.turmaCardHeaderDesc}>
+          <Text style={styles.turmaDesc}>Turno: {item.turno}</Text>
+          <Text style={styles.turmaDesc}>Série: {item.serie}</Text>
+        </View>
       </View>
       <View style={styles.turmaLine}>
         <Text style={styles.turmaName}>{item.nome}</Text>

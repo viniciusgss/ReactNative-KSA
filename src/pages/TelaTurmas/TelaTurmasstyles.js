@@ -40,12 +40,12 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 20,
   },
-  turmaContainer: {
+  turmaCard: {
     flex: 1,
     margin: 10,
     backgroundColor: '#f0f0f0',
     alignItems: 'center',
-    maxWidth: '45%', // Adicione esta linha para limitar a largura máxima
+    maxWidth: '45%',
     borderStyle: 'solid',
     borderColor: '#333',
     borderWidth: 1,
@@ -68,11 +68,15 @@ export const styles = StyleSheet.create({
     width: '70%',
     alignItems: 'center',
   },
-  turmaBanner: {
+  turmaCardHeader: {
     backgroundColor: '#FF9900',
-    padding: 20,
+    paddingTop: 5,
+    paddingBottom: 20,
+    paddingLeft: 80,
     width: '100%',
     alignItems: 'center',
+    flexDirection: 'row',
+    display: 'flex',
   },
   turmaImage: {
     width: 20,
@@ -99,4 +103,18 @@ export const styles = StyleSheet.create({
     height: 150,
     resizeMode: 'contain',
   },
+  turmaFotoProf: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: 'gray',
+    borderColor: 'black',
+    borderWidth: 1,
+    position: 'absolute',
+    left: 10,
+    top: -15, // Ajuste para garantir que o topo do círculo fique para fora do card
+  },
+  turmaCardHeaderDesc: {
+    width: '100%',
+  }
 });
