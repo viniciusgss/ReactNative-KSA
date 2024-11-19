@@ -72,7 +72,6 @@ export const styles = StyleSheet.create({
     backgroundColor: '#FF9900',
     paddingTop: 5,
     paddingBottom: 20,
-    paddingLeft: 80,
     width: '100%',
     alignItems: 'center',
     flexDirection: 'row',
@@ -114,7 +113,12 @@ export const styles = StyleSheet.create({
     left: 10,
     top: -15, // Ajuste para garantir que o topo do círculo fique para fora do card
   },
-  turmaCardHeaderDesc: {
+  turmaCardHeaderDesc:{
+    paddingLeft: 80,
+  },
+  turmaCardHeaderText: {
+    fontWeight: 'bold',
+    color: '#FFF',
     width: '100%',
   }
 });

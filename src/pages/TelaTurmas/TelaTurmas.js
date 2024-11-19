@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, Image, ActivityIndicator, TouchableOpacity} from 'react-native';
+import { View, Text, FlatList, Image, ActivityIndicator, TouchableOpacity, ImageBackground} from 'react-native';
 import { styles } from './TelaTurmasstyles';
 import { Header, Footer } from '../../imports/import';
 
@@ -23,18 +23,18 @@ const TelaTurmas = () => {
 
   const renderTurma = ({ item }) => (
     <TouchableOpacity style={styles.turmaCard}>
-      <View style={styles.turmaCardHeader}>
-        <View style={styles.turmaFotoProf} />
+      <ImageBackground source={require('../../assets/Banner.jpg')} style={styles.turmaCardHeader}>
+        <Image source={require('../../assets/heimer.jpg')} style={styles.turmaFotoProf} />
         <View style={styles.turmaCardHeaderDesc}>
-          <Text style={styles.turmaDesc}>Turno: {item.turno}</Text>
-          <Text style={styles.turmaDesc}>Série: {item.serie}</Text>
+          <Text style={styles.turmaCardHeaderText}>Turno: {item.turno}</Text>
+          <Text style={styles.turmaCardHeaderText}>Série: {item.serie}</Text>
         </View>
-      </View>
+      </ImageBackground>
       <View style={styles.turmaLine}>
         <Text style={styles.turmaName}>{item.nome}</Text>
       </View>
       <View style={styles.turmaMembers}>
-        <Image source={require('../../assets/people.png')} style={styles.turmaImage} />
+        <Image source={require('../../assets/professor.png')} style={styles.turmaImage} />
         <Text style={styles.turmaMemberText} numberOfLines={1} ellipsizeMode="tail">{item.professores}</Text>
       </View>
     </TouchableOpacity>
