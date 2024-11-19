@@ -23,7 +23,8 @@ const TelaTurmas = () => {
 
   const renderTurma = ({ item }) => (
     <TouchableOpacity style={styles.turmaCard}>
-      <ImageBackground source={require('../../assets/Banner.jpg')} style={styles.turmaCardHeader}>
+      <ImageBackground source={require('../../assets/Banner.jpg')} blurRadius={5} style={styles.turmaCardHeader}>
+        <View style={styles.overlay} />
         <Image source={require('../../assets/heimer.jpg')} style={styles.turmaFotoProf} />
         <View style={styles.turmaCardHeaderDesc}>
           <Text style={styles.turmaCardHeaderText}>Turno: {item.turno}</Text>

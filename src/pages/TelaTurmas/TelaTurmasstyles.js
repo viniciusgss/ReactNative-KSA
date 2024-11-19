@@ -120,5 +120,9 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#FFF',
     width: '100%',
-  }
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject, // Faz com que o overlay cubra toda a ImageBackground
+    backgroundColor: 'rgba(0, 0, 0, 0.4)', // Ajuste a cor e a opacidade conforme necessário
+  },
 });
