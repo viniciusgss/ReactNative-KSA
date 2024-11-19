@@ -65,7 +65,7 @@ export const styles = StyleSheet.create({
     borderBottomColor: '#FF9900',
     paddingTop: 20, 
     paddingBottom: 10,
-    width: '70%',
+    width: '80%',
     alignItems: 'center',
   },
   turmaCardHeader: {
@@ -77,19 +77,19 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     display: 'flex',
   },
-  turmaImage: {
+  detailIcon: {
     width: 20,
     height: 15, 
     marginRight: 5,
   },
-  turmaMembers: {
+  turmaDetail: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingTop: 5,
-    width: '65%',
+    width: '80%',
     maxWidth: '100%',
   },
-  turmaMemberText: {
+  turmaDetailText: {
     fontSize: 12,
     color: '#333',
     flexShrink: 1,
@@ -111,7 +111,7 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     position: 'absolute',
     left: 10,
-    top: -15, // Ajuste para garantir que o topo do círculo fique para fora do card
+    top: -15,
   },
   turmaCardHeaderDesc:{
     paddingLeft: 80,
@@ -122,7 +122,7 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
   overlay: {
-    ...StyleSheet.absoluteFillObject, // Faz com que o overlay cubra toda a ImageBackground
-    backgroundColor: 'rgba(0, 0, 0, 0.4)', // Ajuste a cor e a opacidade conforme necessário
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
   },
 });

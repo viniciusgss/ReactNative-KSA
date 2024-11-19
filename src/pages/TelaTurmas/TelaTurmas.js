@@ -21,25 +21,34 @@ const TelaTurmas = () => {
       });
   }, []);
 
-  const renderTurma = ({ item }) => (
-    <TouchableOpacity style={styles.turmaCard}>
-      <ImageBackground source={require('../../assets/Banner.jpg')} blurRadius={5} style={styles.turmaCardHeader}>
-        <View style={styles.overlay} />
-        <Image source={require('../../assets/heimer.jpg')} style={styles.turmaFotoProf} />
-        <View style={styles.turmaCardHeaderDesc}>
-          <Text style={styles.turmaCardHeaderText}>Turno: {item.turno}</Text>
-          <Text style={styles.turmaCardHeaderText}>Série: {item.serie}</Text>
+  const renderTurma = ({ item }) => {
+    // Supondo que item.professores e item.alunos sejam arrays
+    const totalPessoas = item.professores.length + item.alunos.length;
+
+    return (
+      <TouchableOpacity style={styles.turmaCard}>
+        <ImageBackground source={require('../../assets/Banner.jpg')} blurRadius={5} style={styles.turmaCardHeader}>
+          <View style={styles.overlay} />
+          <Image source={require('../../assets/heimer.jpg')} style={styles.turmaFotoProf} />
+          <View style={styles.turmaCardHeaderDesc}>
+            <Text style={styles.turmaCardHeaderText}>Turno: {item.turno}</Text>
+            <Text style={styles.turmaCardHeaderText}>Série: {item.serie}</Text>
+          </View>
+        </ImageBackground>
+        <View style={styles.turmaLine}>
+          <Text style={styles.turmaName}>{item.nome}</Text>
         </View>
-      </ImageBackground>
-      <View style={styles.turmaLine}>
-        <Text style={styles.turmaName}>{item.nome}</Text>
-      </View>
-      <View style={styles.turmaMembers}>
-        <Image source={require('../../assets/professor.png')} style={styles.turmaImage} />
-        <Text style={styles.turmaMemberText} numberOfLines={1} ellipsizeMode="tail">{item.professores}</Text>
-      </View>
-    </TouchableOpacity>
-  );
+        <View style={styles.turmaDetail}>
+          <Image source={require('../../assets/professor.png')} style={styles.detailIcon} />
+          <Text style={styles.turmaDetailText} numberOfLines={1} ellipsizeMode="tail">{item.professores.join(', ')}</Text>
+        </View>
+        <View style={styles.turmaDetail}>
+          <Image source={require('../../assets/people.png')} style={styles.detailIcon} />
+          <Text style={styles.turmaDetailText} numberOfLines={1} ellipsizeMode="tail">{totalPessoas} Pessoas</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
 
   return (
     <View style={styles.container}>
