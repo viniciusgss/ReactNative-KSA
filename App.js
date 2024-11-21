@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { View, StyleSheet, Text, ScrollView, TouchableOpacity } from 'react-native';
-import Dec from './src/assets/Dec'; // Ajuste este import para refletir o tipo de recurso
+import { View, StyleSheet, Text, ScrollView, TouchableOpacity, Image } from 'react-native';
 
 import { Header, Footer, NextScreen } from './src/imports/import';
 
@@ -23,7 +22,7 @@ function HomeScreen({ navigation }) {
 
       {/* Ícone no canto superior direito */}
       <View style={styles.iconContainer}>
-        <Dec />
+        <Image source={Dec} style={styles.icon} />
       </View>
 
       {/* Navegação entre semestres */}
@@ -99,10 +98,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 10,
     right: 10,
+  },
+  icon: {
     width: 40,
     height: 40,
-    backgroundColor: '#FFA500', // Placeholder para o ícone
-    borderRadius: 20,
+    resizeMode: 'contain',
   },
   semesterTabs: {
     flexDirection: 'row',

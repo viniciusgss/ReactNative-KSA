@@ -3,7 +3,7 @@ import Welcome from '../pages/Welcome/Welcome';
 import Question from '../pages/Question/Question';
 import DecoracaoInfer from '../pages/DecoracaoInfer/DecoracaoInfer';
 import NextScreen from '../pages/NextScreen/NextScreen';
-
+import Dec from '../assets/Dec';
 
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
@@ -15,5 +15,6 @@ export {
   Welcome,
   Question,
   DecoracaoInfer,
-  NextScreen
+  NextScreen,
+  Dec
 };
