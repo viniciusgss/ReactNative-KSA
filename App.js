@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
 import {
   View,
   StyleSheet,
@@ -9,17 +8,18 @@ import {
   ScrollView,
   TouchableOpacity,
   Image,
+  Dimensions,
 } from 'react-native';
 
-import Icon from 'react-native-vector-icons/MaterialIcons'; // Importando ícones
-import { Header, Footer, Dec } from './src/imports/import'; // Importação de componentes
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import { Header, Footer, Dec } from './src/imports/import';
 
 const Stack = createNativeStackNavigator();
+const { width, height } = Dimensions.get('window');
 
 function HomeScreen() {
   const [selectedSemester, setSelectedSemester] = useState(1);
 
-  // Matérias fixas para todos os Unidades
   const materias = [
     'Biologia',
     'Educação Física',
@@ -35,7 +35,6 @@ function HomeScreen() {
     'Programaê!',
   ];
 
-  // Função para atualizar o título conforme o Unidade selecionado
   const getSemesterTitle = (semester) => {
     switch (semester) {
       case 1:
@@ -51,22 +50,15 @@ function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      {/* Cabeçalho */}
       <Header title="KSA" />
-
-      {/* Ícone no canto superior direito */}
-      <View style={styles.Dec}>
-      <Image src={require('./src/assets/dec.png')} />
-      </View>
 
       <ScrollView contentContainerStyle={styles.scrollView}>
         <View style={styles.titleContainer}>
-          <Icon name="play-arrow" size={20} color="#FFA500" />
-          <Text style={[styles.titleText, { color: '#000' }]}>Boletim</Text>
+          <Icon name="play-arrow" size={width * 0.05} color="#FFA500" />
+          <Text style={styles.titleText}>Boletim</Text>
           <Image source={Dec} style={styles.icon} />
         </View>
 
-        {/* Navegação entre Unidades */}
         <View style={styles.semesterTabs}>
           {[1, 2, 3].map((semester) => (
             <TouchableOpacity
@@ -89,15 +81,13 @@ function HomeScreen() {
           ))}
         </View>
 
-        {/* Título dinâmico */}
-        <Text style={{ fontWeight: 'bold', textAlign: 'center', marginVertical: 10 }}>
+        <Text style={styles.semesterTitle}>
           {getSemesterTitle(selectedSemester)}
         </Text>
 
         <Text style={styles.subText}>Aluno: Anna Carolina</Text>
         <Text style={styles.subText}>Turma: 3A</Text>
 
-        {/* Tabela de Boletim */}
         <View style={styles.tableContainer}>
           <View style={styles.tableHeader}>
             <Text style={styles.tableHeaderText}>Disciplina</Text>
@@ -114,9 +104,7 @@ function HomeScreen() {
               ]}
               key={index}
             >
-              <Text style={styles.tableCell}>
-                {disciplina.length > 12 ? disciplina.slice(0, 12) + '...' : disciplina}
-              </Text>
+              <Text style={styles.tableCell}>{disciplina}</Text>
               <Text style={styles.tableCell}>-</Text>
               <Text style={styles.tableCell}>-</Text>
               <Text style={styles.tableCell}>-</Text>
@@ -125,7 +113,6 @@ function HomeScreen() {
           ))}
         </View>
 
-        {/* Legenda e Botão */}
         <View style={styles.legendContainer}>
           <View style={styles.legendTextContainer}>
             <Text style={styles.legendTitle}>Legendas:</Text>
@@ -138,13 +125,13 @@ function HomeScreen() {
               NOA - Novas oportunidades de aprendizado
             </Text>
           </View>
-          <TouchableOpacity style={styles.downloadButton}>
-            <Text style={styles.downloadButtonText}>Baixar</Text>
-          </TouchableOpacity>
         </View>
+
+        <TouchableOpacity style={styles.downloadButton}>
+          <Text style={styles.downloadButtonText}>Baixar</Text>
+        </TouchableOpacity>
       </ScrollView>
 
-      {/* Rodapé */}
       <Footer />
     </View>
   );
@@ -165,111 +152,88 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-
-
   container: {
     flex: 1,
     backgroundColor: '#F5F5F5',
   },
+  scrollView: {
+    paddingBottom: height * 0.2,
+  },
   icon: {
+    width: width * 0.2,
+    height: width * 0.2,
     position: 'absolute',
-    top: '-400%',
-    right: '-5%',
-    zIndex: 0,
+    top: '-200%',
+    right: '0%',
   },
   titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 10,
-    paddingLeft: 15,
+    marginVertical: height * 0.02,
   },
   titleText: {
-    fontSize: 18,
+    fontSize: width * 0.045,
     fontWeight: 'bold',
-    marginLeft: 5,
+    marginLeft: width * 0.02,
   },
   semesterTabs: {
     flexDirection: 'row',
-    justifyContent: 'center',
-    marginVertical: 10,
-  },
-  semesterTab: {
-    padding: 10,
-    marginHorizontal: 5,
-    borderBottomWidth: 2,
-    borderBottomColor: 'transparent',
+    justifyContent: 'space-around',
+    marginVertical: height * 0.02,
   },
   activeTab: {
     borderBottomColor: '#6A1B9A',
-  },
-  semesterTabText: {
-    fontSize: 14,
-    color: '#666',
-  },
-  activeTabText: {
-    color: '#6A1B9A',
-    fontWeight: 'bold',
-  },
-  scrollView: {
-    paddingHorizontal: 20,
-    paddingBottom: 20,
+    borderBottomWidth: 2,
   },
   tableContainer: {
-    marginTop: 20,
+    marginTop: height * 0.02,
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: '#000',
     borderRadius: 5,
-    overflow: 'hidden',
   },
   tableHeader: {
     flexDirection: 'row',
     backgroundColor: '#FFA500',
-    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#000',
   },
   tableHeaderText: {
     flex: 1,
+    textAlign: 'center',
     fontWeight: 'bold',
     color: '#FFF',
-    textAlign: 'center',
+    borderRightWidth: 1,
+    borderRightColor: '#000',
   },
   tableRow: {
     flexDirection: 'row',
     borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
+    borderBottomColor: '#000',
   },
   tableCell: {
     flex: 1,
-    padding: 10,
+    paddingVertical: height * 0.02,
     textAlign: 'center',
-    fontSize: 12,
+    fontSize: width * 0.035,
+    borderRightWidth: 1,
+    borderRightColor: '#000',
   },
   legendContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: 20,
-    marginBottom: 30,
-  },
-  legendTextContainer: {
-    flex: 1,
-  },
-  legendTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginBottom: 5,
-  },
-  legendText: {
-    fontSize: 14,
-    marginBottom: 2,
+    padding: width * 0.04,
+    marginTop: height * 0.05,
   },
   downloadButton: {
     backgroundColor: '#FFA500',
-    padding: 10,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
     borderRadius: 5,
+    alignSelf: 'center',
+    marginVertical: 15,
   },
   downloadButtonText: {
-    fontSize: 16,
-    color: '#FFF',
+    fontSize: 14,
+    color: '#FFFFFF',
     fontWeight: 'bold',
     textAlign: 'center',
   },
